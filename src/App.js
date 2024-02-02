@@ -1,21 +1,30 @@
-import React, { useState } from "react";
+import "./styles.css";
+import { useState } from "react";
 
-const App = () => {
-	const [count, setCount] = useState(0);
-	const incrementCount = () => {
-		setCount(count + 1);
-	};
-	const decrementCount = () => {
-		setCount(count - 1);
-	};
-	return (
-		<div>
-			<h1>Counter App</h1>
-			<p>Count: {count}</p>
-			<button onClick={incrementCount}>Increment</button>
-			<button onClick={decrementCount}>Decrement</button>
-		</div>
-	);
-};
-
-export default App;
+export default function App() {
+  const [value, setValue] = useState(0);
+  return (
+    <div>
+      <h1>Counter App</h1>
+      <p>Count: {value} </p>
+      <button
+        onClick={() => {
+          setValue((prev) => {
+            return prev + 1;
+          });
+        }}
+      >
+        Increment
+      </button>
+      <button
+        onClick={() => {
+          setValue((prev) => {
+            return prev - 1;
+          });
+        }}
+      >
+        Decrement
+      </button>
+    </div>
+  );
+}
